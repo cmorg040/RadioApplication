@@ -70,7 +70,7 @@ class ShowTableViewController: UITableViewController {
         
         cell.titleLabel.text = show.title
         cell.dateLabel.text = formatHours(date: show.date, showLengthHours: show.length)
-        cell.descriptionLabel.text = show.description
+//        cell.descriptionLabel.text = show.description
 
         return cell
     }
