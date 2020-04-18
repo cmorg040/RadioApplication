@@ -61,7 +61,6 @@
         <!--The Roar Shows-->
         <scene sceneID="BLo-VR-gdZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nII-MD-E28" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="yyW-CA-HIv" customClass="ShowTableViewController" customModule="RadioApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fQS-9C-dIq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -120,38 +119,80 @@
                     <navigationItem key="navigationItem" title="The Roar Shows" id="hbq-5g-u1L">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="aw8-KZ-yab">
                             <connections>
-                                <segue destination="nN6-bq-mxy" kind="show" id="EaI-1C-YcN"/>
+                                <segue destination="lUB-Hd-nUW" kind="modal" identifier="AddItem" id="EaI-1C-YcN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nII-MD-E28" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="876.81159420289862" y="725.89285714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--New Show-->
         <scene sceneID="7to-Ps-P7g">
             <objects>
-                <viewController id="nN6-bq-mxy" sceneMemberID="viewController">
+                <viewController id="nN6-bq-mxy" customClass="ShowViewController" customModule="RadioApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y4a-SA-L6N">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRL-rN-sre">
-                                <rect key="frame" x="20" y="88" width="374" height="96"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Show Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ktD-3N-Veg">
+                                <rect key="frame" x="20" y="96" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="FQa-zv-jVp">
+                                <rect key="frame" x="20" y="202" width="183" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="QNL-k9-MOu">
+                                <rect key="frame" x="211" y="202" width="183" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-hv-tfn">
+                                <rect key="frame" x="30" y="138" width="173" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Het-4H-rAn">
+                                <rect key="frame" x="211" y="138" width="183" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4E-Lh-ZEh">
+                                <rect key="frame" x="20" y="372" width="374" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Show Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vpK-5o-fCD">
+                                <rect key="frame" x="20" y="542" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Stf-cm-CL2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="sHF-hP-j6O"/>
+                    <navigationItem key="navigationItem" title="New Show" id="sHF-hP-j6O">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ZIU-Fx-D8f"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="lvn-H9-vhD"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="dayPicker" destination="W4E-Lh-ZEh" id="QEe-9l-X4K"/>
+                        <outlet property="showDescriptionField" destination="vpK-5o-fCD" id="PWa-je-zR6"/>
+                        <outlet property="showEndTime" destination="QNL-k9-MOu" id="6pG-ud-Q4H"/>
+                        <outlet property="showNameField" destination="ktD-3N-Veg" id="3IX-e7-1Dk"/>
+                        <outlet property="showStartTime" destination="FQa-zv-jVp" id="UAd-YV-y79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="62u-47-gvA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947.826086956522" y="1149.1071428571429"/>
+            <point key="canvasLocation" x="2857.971014492754" y="1149.1071428571429"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -190,6 +231,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xay-1F-gv7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-33.333333333333336" y="725.89285714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fen-2D-po0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUB-Hd-nUW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KMl-v0-tx0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nN6-bq-mxy" kind="relationship" relationship="rootViewController" id="auX-5B-zTk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ukv-67-zis" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1947.826086956522" y="1149.1071428571429"/>
         </scene>
     </scenes>
     <resources>

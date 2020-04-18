@@ -18,6 +18,7 @@
 		985E359B2447582D00F17B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 985E359A2447582D00F17B35 /* Assets.xcassets */; };
 		985E359E2447582D00F17B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 985E359C2447582D00F17B35 /* LaunchScreen.storyboard */; };
 		98D53FC32448B64900CF5721 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D53FC22448B64900CF5721 /* ShowTableViewCell.swift */; };
+		98DC87C4244B7CD3006691B5 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DC87C3244B7CD3006691B5 /* ShowViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		985E359D2447582D00F17B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		985E359F2447582D00F17B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98D53FC22448B64900CF5721 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		98DC87C3244B7CD3006691B5 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				985E35922447582200F17B35 /* SecondViewController.swift */,
 				98D53FC22448B64900CF5721 /* ShowTableViewCell.swift */,
 				9813D5D92448CE6600FEFB3F /* ShowTableViewController.swift */,
+				98DC87C3244B7CD3006691B5 /* ShowViewController.swift */,
 				9813D5DD2448CF1800FEFB3F /* Models */,
 				985E35942447582200F17B35 /* Main.storyboard */,
 				985E359A2447582D00F17B35 /* Assets.xcassets */,
@@ -167,6 +170,7 @@
 				985E35992447582200F17B35 /* RadioApp.xcdatamodeld in Sources */,
 				985E358D2447582200F17B35 /* AppDelegate.swift in Sources */,
 				9813D5DA2448CE6600FEFB3F /* ShowTableViewController.swift in Sources */,
+				98DC87C4244B7CD3006691B5 /* ShowViewController.swift in Sources */,
 				9813D5DC2448CF0100FEFB3F /* Show.swift in Sources */,
 				985E358F2447582200F17B35 /* SceneDelegate.swift in Sources */,
 			);

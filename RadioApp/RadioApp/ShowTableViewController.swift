@@ -15,6 +15,8 @@ class ShowTableViewController: UITableViewController {
     
     var shows = [Show]()
     
+    var show: Show?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
