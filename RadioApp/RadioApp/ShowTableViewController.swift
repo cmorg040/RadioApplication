@@ -9,6 +9,17 @@
 import Foundation
 import UIKit
 
+struct DailySection {
+    var day: Date
+    var shows: [Show]
+}
+
+private func getShowDay(date: Date) -> Date{
+    let calendar = Calendar.current
+    let component = calendar.dateComponents([.weekday], from: date)
+    return calendar.date(from: component)!
+}
+
 class ShowTableViewController: UITableViewController {
 
     let defaultDate = Date(timeIntervalSinceReferenceDate: 0.0)
@@ -17,9 +28,18 @@ class ShowTableViewController: UITableViewController {
     
     var show: Show?
     
+    var sections = [DailySection]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let groups = Dictionary(grouping: self.shows) { (show) in
+            return getShowDay(date: show.date)
+        }
+        self.sections = groups.map { (key, values) in
+            return DailySection(day: key, shows: values)
+        }
+        
         loadSampleShow()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,13 +51,39 @@ class ShowTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 7 //7 days of the week.
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return shows.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "\(weekdayFromOffset(offset: section))"
+    }
+    
+    private func weekdayFromOffset(offset: Int) -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let currentWeekDay = calendar.component(.weekday, from: date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE"
+        
+        
+        if currentWeekDay + offset <= 7 {
+            let newDate = Calendar.current.date(byAdding: .day, value: offset, to: date)!
+            return formatter.string(from: newDate)
+//            return (currentWeekDay + offset).dayOfWeek()
+//            let components = DateComponents(weekday: (currentWeekDay + offset))
+//            let weekdayString = formatter.string(from: components)
+//            return weekdayString ?? "Caturday"
+        } else {
+            let newDate = Calendar.current.date(byAdding: .day, value: (offset - 7), to: date)!
+            return formatter.string(from: newDate)
+        }
+    }
+    
     private func loadSampleShow() {
         let sampleTitle = "Unpopular"
         let sampleDate = defaultDate
